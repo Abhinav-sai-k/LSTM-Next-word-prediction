@@ -1,4 +1,7 @@
 # Define Model
+from torch import nn
+from torch import optim
+
 class NextWordLSTM(nn.Module):
     def __init__(self, vocab_size, embed_dim, hidden_dim):
         super(NextWordLSTM, self).__init__()
