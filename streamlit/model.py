@@ -3,16 +3,7 @@ from torch import nn
 from torch import optim
 import joblib
 
-
-from tensorflow.keras.preprocessing.text import Tokenizer
-
-# Load text
-txt_file = joblib.load('paradise.pkl')
-
-# Tokenization
-tokenizer = Tokenizer()
-tokenizer.fit_on_texts([txt_file])
-total_words = len(tokenizer.word_index) + 1
+total_words = joblib.load('total_words.pkl')  # loading total_words from the saved file
 
 class NextWordLSTM(nn.Module):
     def __init__(self, vocab_size, embed_dim, hidden_dim):
