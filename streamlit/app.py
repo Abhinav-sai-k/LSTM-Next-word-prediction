@@ -8,7 +8,6 @@ from model import NextWordLSTM  # Import your LSTM model class
 
 # Load tokenizer
 tokenizer = joblib.load("tokenizer.pkl")
-paradise_text = joblib.load("paradise.pkl")
 # Vocabulary size (needed for model definition)
 total_words = len(tokenizer.word_index) + 1
 
@@ -54,7 +53,8 @@ st.write("Type a sentence and choose from suggested next words to build text int
 
 # Load corpus samples
 
-corpus_text = paradise_text.split("\n")
+with open("paradise.txt", "r") as f:
+    corpus_text = f.split("\n")
 
 sample_sentences = [line for line in corpus_text if len(line.split()) > 5][:5]
 
