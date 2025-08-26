@@ -7,4 +7,5 @@ scikit-learn
 pandas
 nltk
 streamlit
+tensorflow
 joblib
