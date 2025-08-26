@@ -7,7 +7,7 @@ from model import NextWordLSTM  # Import your LSTM model class
 
 
 # Load tokenizer
-tokenizer = joblib.load("tokenizer.joblib")
+tokenizer = joblib.load("tokenizer.pkl")
 
 # Vocabulary size (needed for model definition)
 total_words = len(tokenizer.word_index) + 1
