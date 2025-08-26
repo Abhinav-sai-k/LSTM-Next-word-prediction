@@ -54,7 +54,7 @@ st.write("Type a sentence and choose from suggested next words to build text int
 # Load corpus samples
 
 with open("paradise.txt", "r") as f:
-    corpus_text = f.split("\n")
+    corpus_text = f.read().split("\n")
 
 sample_sentences = [line for line in corpus_text if len(line.split()) > 5][:5]
 
