@@ -66,7 +66,7 @@ st.write("---")
 
 # Maintain session state for interactive text
 if "user_text" not in st.session_state:
-    st.session_state.user_text = "Of man’s first disobedience"
+    st.session_state.user_text = input("Type your starting text here...")
 
 st.subheader("✍️ Current Text:")
 st.write(st.session_state.user_text)
@@ -84,5 +84,5 @@ for i, (word, prob) in enumerate(predictions):
 
 # Option to reset
 if st.button("🔄 Reset"):
-    st.session_state.user_text = "Of man’s first disobedience"
+    st.session_state.user_text = input("Type your starting text here again...")
     st.experimental_rerun()
