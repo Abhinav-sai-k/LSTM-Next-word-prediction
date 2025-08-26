@@ -66,10 +66,19 @@ st.write("---")
 
 # Maintain session state for interactive text
 if "user_text" not in st.session_state:
-    st.session_state.user_text = input("Type your starting text here...")
+    st.session_state.user_text = ""
 
 st.subheader("✍️ Current Text:")
+
+# Use Streamlit text_input instead of input()
+st.session_state.user_text = st.text_input(
+    "Type your starting text here...",
+    value=st.session_state.user_text,
+    key="user_text_input"
+)
+
 st.write(st.session_state.user_text)
+
 
 # Predict top 5
 max_sequence_len = model.embedding.num_embeddings
@@ -84,5 +93,6 @@ for i, (word, prob) in enumerate(predictions):
 
 # Option to reset
 if st.button("🔄 Reset"):
-    st.session_state.user_text = input("Type your starting text here again...")
+    st.session_state.user_text = ""
     st.experimental_rerun()
+
